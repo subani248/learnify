@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>home</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+   <style>
+      body {
+       margin: 0;
+       padding: 0;
+       display: flex;
+       overflow-x: hidden; /* Prevents unwanted horizontal scrolling */
+   }
+   
+   .side-bar {
+       position: fixed;
+       top: 0;
+       left: -260px; /* Start hidden */
+       width: 250px;
+       height: 100%;
+       background: #222;
+       transition: 0.3s ease-in-out;
+       padding: 15px;
+       z-index: 1000;
+       overflow-y: auto;
+   }
+   
+   .main-content {
+       flex: 1;
+       width: 100%;
+       transition: margin-left 0.3s ease-in-out;
+   }
+   
+   .side-bar.active {
+       left: 0;
+   }
+   
+   .main-content.shifted {
+       margin-left: 250px;
+   }
+   body.dark-mode {
+       background-color: #121212;
+       color: #ffffff;
+   }
+   
+   .dark-mode .header,
+   .dark-mode .side-bar {
+       background-color: #1e1e1e;
+   }
+   
+   .dark-mode .footer {
+       background-color: #1e1e1e;
+       color: white;
+   }
+   
+   .dark-mode a, .dark-mode button {
+       color: white;
+   }
+   
+   .dark-mode #toggle-btn::before {
+       content: "\f186"; /* Moon icon */
+       font-family: "Font Awesome 6 Free";
+       font-weight: 900;
+   }
+   
+   
+   </style>
+   
+   
+   </head>
+   <body>
+         <div class="side-bar">
+             
+             <div class="profile">
+                 <img src="images/pic-5.jpg" class="image" alt="">
+                 <h3 class="name">Srujana</h3>
+                 <p class="role">student</p>
+                 <a href="profile.html" class="btn">view profile</a>
+             </div>
+             <nav class="navbar">
+                 <a href="index.html"><i class="fas fa-home"></i><span>home</span></a>
+                 <a href="about.html"><i class="fas fa-question"></i><span>about</span></a>
+                 <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
+                 <a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a>
+             </nav>
+         </div>
+     
+         <div class="main-content">
+             <header class="header">
+                 <section class="flex">
+                     <a href="index.html" class="logo">
+                         <img src="images/website.png" alt="Learnify" class="logo-image" length="100" width="100">
+                     </a>
+                     <div class="icons">
+                         <div id="menu-btn" class="fas fa-bars"></div>
+                         
+                         <div id="toggle-btn" class="fas fa-sun"></div>
+                     </div>
+                     <div class="profile">
+                         <img src="images/pic-5.jpg" class="image" alt="">
+                         <h3 class="name">Srujana</h3>
+                         <p class="role">student</p>
+                         <a href="profile.html" class="btn">view profile</a>
+                         <div class="flex-btn">
+                             <a href="login.html" class="option-btn">login</a>
+                             <a href="register.html" class="option-btn">register</a>
+                         </div>
+                     </div>
+                 </section>
+             </header>
+
+<section class="home-grid">
+
+   <h1 class="heading">quick options</h1>
+
+   <div class="box-container">
+
+      <div class="box">
+         <h3 class="title">likes and comments</h3>
+         <p class="likes">total likes : <span>0</span></p>
+         <p class="likes">total comments : <span>0</span></p>
+         <p class="likes">saved playlists : <span>0</span></p>
+      </div>
+
+      <div class="box">
+         <h3 class="title">top categories</h3>
+         <div class="flex">
+            <a href="bussines.html"><i class="fas fa-chart-simple"></i><span>business</span></a>
+            <a href="desgin_courses.html"><i class="fas fa-pen"></i><span>design</span></a>
+            <a href="photo_course.html"><i class="fas fa-camera"></i><span>photography</span></a>
+            <a href="software.html"><i class="fas fa-cog"></i><span>software</span></a>
+             </div>
+      </div>
+
+      <div class="box">
+         <h3 class="title">popular topics</h3>
+         <div class="flex">
+            <a href="playlist.html"><i class="fab fa-html5"></i><span>HTML</span></a>
+            <a href="css1.html"><i class="fab fa-css3"></i><span>CSS</span></a>
+            <a href="js1.html"><i class="fab fa-js"></i><span>javascript</span></a>
+            <a href="sass.html"><i class="fab fa-sass"></i><span>SASS</span></a>
+            <a href="jquary.html"><i class="fab fa-code"></i><span>JQuery</span></a>
+            <a href="bootstrap.html"><i class="fab fa-bootstrap"></i><span>bootstrap</span></a>
+         </div>
+      </div>
+   </div>
+
+</section>
+
+
+
+<section class="courses">
+
+   <h1 class="heading">our courses</h1>
+
+   <div class="box-container">
+
+      <div class="box">
+         <div class="tutor">
+            <img src="images/shradha.jpeg" alt="">
+            <div class="info">
+               <h3>Shradha Khapra</h3>
+               <span>20-02-2025</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="images/thumb-1.png" alt="">
+
+         </div>
+         <h3 class="title">complete HTML tutorial</h3>
+         <a href="playlist.html" class="inline-btn">view video </a>
+      </div>
+
+      <div class="box">
+         <div class="tutor">
+            <img src="images/shradha.jpeg" alt="">
+            <div class="info">
+               <h3>shradha khapra</h3>
+               <span>20-02-2025</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="images/thumb-2.png" alt="">
+            
+         </div>
+         <h3 class="title">complete CSS tutorial</h3>
+         <a href="css1.html" class="inline-btn">view video </a>
+      </div>
+
+      <div class="box">
+         <div class="tutor">
+            <img src="images/shradha.jpeg" alt="">
+            <div class="info">
+               <h3>shradha khapra</h3>
+               <span>20-02-2025</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="images/thumb-3.png" alt="">
+         </div>
+         <h3 class="title">complete JS tutorial</h3>
+         <a href="js1.html" class="inline-btn">view video</a>
+      </div>
+
+      <div class="box">
+         <div class="tutor">
+            <img src="images/download.jpeg" alt="">
+            <div class="info">
+               <h3>freecodecamp</h3>
+               <span>20-02-2025</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="images/thumb-4.png" alt="">
+         </div>
+         <h3 class="title">complete Boostrap tutorial</h3>
+         <a href="bootstrap.html" class="inline-btn">view video</a>
+      </div>
+
+      <div class="box">
+         <div class="tutor">
+            <img src="images/simplilearn.png" alt="">
+            <div class="info">
+               <h3>simplilearn</h3>
+               <span>20-02-2025</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="images/thumb-5.png" alt="">
+         </div>
+         <h3 class="title">complete JQuery tutorial</h3>
+         <a href="jquary.html" class="inline-btn">view vedio</a>
+      </div>
+
+      <div class="box">
+         <div class="tutor">
+            <img src="images/download.jpeg" alt="">
+            <div class="info">
+               <h3>freecodecamp</h3>
+               <span>20-02-2025</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="images/thumb-6.png" alt="">
+            
+         </div>
+         <h3 class="title">complete SASS tutorial</h3>
+         <a href="sass.html" class="inline-btn">view video</a>
+      </div>
+   </div>
+</section>
+<footer class="footer">
+
+   &copy; copyright @ 2025 by <span>Lernify</span> | all rights reserved!
+
+</footer>
+
+<!-- custom js file link  -->
+<script>
+   document.addEventListener("DOMContentLoaded", function () {
+    let menuBtn = document.querySelector("#menu-btn");
+    let sidebar = document.querySelector(".side-bar");
+    let mainContent = document.querySelector(".main-content");
+    let toggleBtn = document.querySelector("#toggle-btn");
+    let body = document.body;
+
+    // Load dark mode preference from localStorage
+    if (localStorage.getItem("darkMode") === "enabled") {
+        body.classList.add("dark-mode");
+        toggleBtn.classList.replace("fa-sun", "fa-moon");
+    }
+
+    // Sidebar toggle
+    menuBtn.addEventListener("click", function (event) {
+        event.stopPropagation();
+        sidebar.classList.toggle("active");
+        mainContent.classList.toggle("shifted");
+    });
+
+    // Close sidebar when clicking outside
+    document.addEventListener("click", function (event) {
+        if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+            sidebar.classList.remove("active");
+            mainContent.classList.remove("shifted");
+        }
+    });
+
+    // Dark mode toggle
+    toggleBtn.addEventListener("click", function () {
+        body.classList.toggle("dark-mode");
+        if (body.classList.contains("dark-mode")) {
+            localStorage.setItem("darkMode", "enabled");
+            toggleBtn.classList.replace("fa-sun", "fa-moon"); // Change to moon icon
+        } else {
+            localStorage.setItem("darkMode", "disabled");
+            toggleBtn.classList.replace("fa-moon", "fa-sun"); // Change to sun icon
+        }
+    });
+});
+</script>
+
+   
+</body>
+</html>

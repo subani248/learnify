@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>CSS</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+   <style>
+      body {
+       margin: 0;
+       padding: 0;
+       display: flex;
+       overflow-x: hidden; /* Prevents unwanted horizontal scrolling */
+   }
+   
+   .side-bar {
+       position: fixed;
+       top: 0;
+       left: -260px; /* Start hidden */
+       width: 250px;
+       height: 100%;
+       background: #222;
+       transition: 0.3s ease-in-out;
+       padding: 15px;
+       z-index: 1000;
+       overflow-y: auto;
+   }
+   
+   .main-content {
+       flex: 1;
+       width: 100%;
+       transition: margin-left 0.3s ease-in-out;
+   }
+   
+   .side-bar.active {
+       left: 0;
+   }
+   
+   .main-content.shifted {
+       margin-left: 250px;
+   }
+   body.dark-mode {
+       background-color: #070606;
+       color: #880a0a;
+   }
+   
+   .dark-mode .header,
+.dark-mode .side-bar,
+.dark-mode .main-content {  /* Ensure main content is also styled */
+    background-color: #1e1e1e;
+}
+   
+   .dark-mode .footer {
+       background-color: #1e1e1e;
+       color: white;
+   }
+   
+   .dark-mode a, .dark-mode button {
+       color: white;
+   }
+   
+   .dark-mode #toggle-btn::before {
+       content: "\f186"; /* Moon icon */
+       font-family: "Font Awesome 6 Free";
+       font-weight: 900;
+   }
+   
+   
+   </style>
+   
+   
+   </head>
+   <body>
+    <div class="side-bar">
+        <div class="profile">
+            <img src="images/pic-5.jpg" class="image" alt="">
+            <h3 class="name">Srujana</h3>
+            <p class="role">student</p>
+            <a href="profile.html" class="btn">view profile</a>
+        </div>
+        <nav class="navbar">
+            <a href="index.html"><i class="fas fa-home"></i><span>home</span></a>
+            <a href="about.html"><i class="fas fa-question"></i><span>about</span></a>
+            <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
+            <a href="contact.html"><i class="fas fa-headset"></i><span>contact us</span></a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <header class="header">
+            <section class="flex">
+                <a href="index.html" class="logo">
+                    <img src="images/website.png" alt="Learnify" class="logo-image" length="100" width="100">
+                </a>
+                <div class="icons">
+                    <div id="menu-btn" class="fas fa-bars"></div>
+                    
+                    <div id="toggle-btn" class="fas fa-sun"></div>
+                </div>     
+            </section>
+        </header>
+
+        <section class="playlist-details">
+            <h1 class="heading"><span>playlist details</span></h1>
+            <div class="row">
+                <div class="column">
+                    <div class="thumb">
+                        <img src="images/thumb-2.png" alt="">
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="tutor">
+                        <img src="images/shradha.jpeg" alt="" style="width: 100px; height: 100px;">
+                        <div>
+                            <h3>Shradha Khapra</h3>
+                            <span>20-02-2025</span>
+                        </div>
+                    </div>
+                    <div class="details">
+                        <h3>Complete CSS tutorial</h3>
+                    </div>
+                    <div class="chapter-buttons">
+                        <a href="https://www.youtube.com/watch?v=AGDDdsiZ0Ko" class="btn">Chapter 1: Introduction to CSS</a>
+                        <a href="https://www.youtube.com/watch?v=rIO5326FgPE" class="btn">Chapter 2: CSS Basics -- Colors, Text & Box Model</a>
+                        <a href="https://www.youtube.com/watch?v=MxEtxo_AaZ4" class="btn">Chapter 3: CSS Layout & Positioning</a>
+                        <a href="https://www.youtube.com/watch?v=TUD1AWZVgQ8" class="btn">Chapter 4: Advanced CSS – Effects & Responsive Design</a>
+                        <a href="https://www.youtube.com/watch?v=5oOyKVhP0A0" class="btn">Chapter 5:  CSS Frameworks & Best Practices</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            &copy; copyright @ 2025 by <span>Learnify</span> | all rights reserved!
+        </footer>
+    </div>
+<script>
+   document.addEventListener("DOMContentLoaded", function () {
+    let menuBtn = document.querySelector("#menu-btn");
+    let sidebar = document.querySelector(".side-bar");
+    let mainContent = document.querySelector(".main-content");
+    let toggleBtn = document.querySelector("#toggle-btn");
+    let body = document.body;
+
+    // Load dark mode preference from localStorage
+    if (localStorage.getItem("darkMode") === "enabled") {
+        body.classList.add("dark-mode");
+        toggleBtn.classList.replace("fa-sun", "fa-moon");  // Set moon icon initially
+    }
+
+    // Sidebar toggle
+    menuBtn.addEventListener("click", function (event) {
+        event.stopPropagation();
+        sidebar.classList.toggle("active");
+        mainContent.classList.toggle("shifted");
+    });
+
+    // Close sidebar when clicking outside
+    document.addEventListener("click", function (event) {
+        if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+            sidebar.classList.remove("active");
+            mainContent.classList.remove("shifted");
+        }
+    });
+
+    // Dark mode toggle
+    toggleBtn.addEventListener("click", function () {
+        body.classList.toggle("dark-mode");
+
+        // Change the icon based on the mode
+        if (body.classList.contains("dark-mode")) {
+            localStorage.setItem("darkMode", "enabled");
+            toggleBtn.classList.replace("fa-sun", "fa-moon");  // Change to moon icon
+        } else {
+            localStorage.setItem("darkMode", "disabled");
+            toggleBtn.classList.replace("fa-moon", "fa-sun");  // Change to sun icon
+        }
+    });
+});
+</script>
+
+
+   
+</body>
+</html>
